@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="MACROMAN"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <parent>
+    <groupId>bodl</groupId>
+    <artifactId>bodl-server</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>bodl-wrap</groupId>
+  <artifactId>wrap</artifactId>
+
+  <name>bodl-wrap group</name>
+
+  <description>bodl-wrapd non-OSGi artifact</description>
+
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>com.thoughtworks.paranamer</module>
+    <module>net.liftweb.lift-mongodb</module>
+    <module>org.mongodb.mongo-java-driver</module>
+    <module>akka</module>
+    <module>jgroups</module>
+    <module>multiverse</module>
+    <module>jsr166x</module>
+    <module>sjson</module>
+    <module>databinder</module>
+    <module>sbinary</module>
+    <module>twitter4j</module>
+    <module>twitter4j-httpclient-support</module>
+  </modules>
+
+</project>

@@ -1,0 +1,11 @@
+*.class
+*.iml
+*.ipr
+*.iws
+*~
+~*
+.hg/
+.hgignore
+target/
+runner/
+karaf/

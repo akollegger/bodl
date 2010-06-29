@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<features name="bodl-server ${bodl-server.version}">
+
+  <feature name="scala-osgi" version="1.5">
+    <bundle>mvn:com.weiglewilczek.scala-lang-osgi/scala-library_2.8.0.RC3/1.0</bundle>
+    <bundle>mvn:org.eclipse.scalamodules/scalamodules-core/${scalamodules.version}</bundle>
+    <bundle>wrap:mvn:com.googlecode.scalaz/scalaz-core_2.8.0.RC3/5.0-M2-SNAPSHOT</bundle>
+  </feature>
+
+  <feature name="http-grizzly" version="1.0-SNAPSHOT">
+    <bundle>mvn:org.osgi/org.osgi.compendium/4.1.0</bundle>
+    <bundle>mvn:com.sun.grizzly.osgi/grizzly-httpservice-bundle/${grizzly.version}</bundle>
+    <bundle>mvn:org.ops4j.pax.web/pax-web-extender-whiteboard/${pax-web.version}</bundle>
+    <bundle>mvn:org.apache.geronimo.specs/geronimo-servlet_2.5_spec/${servlet-spec.version}</bundle>
+    
+  </feature>
+
+  <feature name="jackson-json" version="${jackson.version}">
+    <bundle>mvn:org.codehaus.jackson/jackson-core-asl/${jackson.version}</bundle>
+    <bundle>mvn:org.codehaus.jackson/jackson-mapper-asl/${jackson.version}</bundle>
+    <bundle>mvn:org.codehaus.jackson/jackson-jaxrs/${jackson.version}</bundle>
+  </feature>
+ 
+  <feature name="jersey-rest" version="1.0-SNAPSHOT">
+    <feature>jackson-json</feature>
+    <bundle>mvn:javax.ws.rs/jsr311-api/${jsr311.version}</bundle>
+    <bundle>mvn:com.sun.jersey/jersey-core/${jersey.version}</bundle>
+    <bundle>mvn:com.sun.jersey/jersey-server/${jersey.version}</bundle>
+    <bundle>mvn:org.codehaus.jettison/jettison/1.2</bundle>
+    <bundle>mvn:com.sun.jersey/jersey-json/${jersey.version}</bundle>
+    <!-- bundle>mvn:com.sun.jersey.contribs/jersey-scala/${jersey.version}</bundle -->
+  </feature>
+
+  <feature name="restlet" version="1.0-SNAPSHOT">
+    <bundle>mvn:org.restlet.jse/org.restlet/2.0-RC3</bundle>  
+  </feature>
+
+  <feature name="javascript" version="1.0-SNAPSHOT">
+    <!-- bundle>mvn:rhino/js/${rhino.version}</bundle -->
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.rhino/1.7R1_2/</bundle>
+  </feature>
+
+  <feature name="rest-support" version="1.0-SNAPSHOT">
+    <!-- feature>jersey-rest</feature -->
+    <feature>jersey-rest</feature>
+  </feature>
+
+  <feature name="hsqldb" version="1.0-SNAPSHOT">
+    <bundle>mvn:org.hsqldb/com.springsource.org.hsqldb/1.8.0.9</bundle>
+    <bundle>mvn:bodl.commons.db/hsqldb/1.0-SNAPSHOT</bundle>
+  </feature>
+
+  <feature name="eclipselink-jpa" version="1.0-SNAPSHOT">
+    <bundle>mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
+    <bundle>mvn:org.eclipse.persistence/javax.persistence/2.0.0</bundle>
+    <bundle>mvn:org.eclipse.persistence/org.eclipse.persistence.core/${eclipselink.version}</bundle>
+    <bundle>mvn:org.eclipse.persistence/org.eclipse.persistence.jpa/${eclipselink.version}</bundle>
+    <bundle>mvn:org.eclipse.persistence/org.eclipse.persistence.asm/${eclipselink.version}</bundle>
+    <bundle>mvn:org.eclipse.persistence/org.eclipse.persistence.antlr/${eclipselink.version}</bundle>
+  </feature>
+
+  <feature name="mongodb" version="1.0-SNAPSHOT">
+    <!--<bundle>mvn:org.mongodb/mongo-java-driver/1.4</bundle>-->
+    <bundle>mvn:bodl-wrap/org.mongodb.mongo-java-driver/2.0rc3-001-SNAPSHOT</bundle>
+    <bundle>mvn:net.liftweb/lift-common/${liftweb.version}</bundle> 
+    <bundle>mvn:net.liftweb/lift-json/${liftweb.version}</bundle> 
+    <bundle>mvn:bodl-wrap/com.thoughtworks.paranamer/2.2-001-SNAPSHOT</bundle>
+    <!-- <bundle>mvn:net.liftweb/lift-mongodb/2.0-scala280-SNAPSHOT</bundle> -->
+    <bundle>mvn:bodl-wrap/net.liftweb.lift-mongodb/2.0-scala280-SNAPSHOT-001-SNAPSHOT</bundle>
+  </feature>
+
+  <feature name="lift-dependencies" version="1.0-SNAPSHOT">
+    <bundle>wrap:mvn:com.thoughtworks.paranamer/paranamer/2.0</bundle>
+    <bundle>wrap:mvn:javax.mail/mail/1.4</bundle>
+    <bundle>wrap:mvn:javax.activation/activation/1.1</bundle>
+    <bundle>wrap:mvn:commons-httpclient/commons-httpclient/3.1</bundle>
+    <bundle>mvn:commons-fileupload/commons-fileupload/1.2.1</bundle>
+    <bundle>mvn:commons-collections/commons-collections/3.2.1</bundle>
+    <bundle>mvn:commons-codec/commons-codec/1.4</bundle>
+    <bundle>wrap:mvn:commons-io/commons-io/1.3.2</bundle>
+    <bundle>mvn:org.ops4j.pax.swissbox/pax-swissbox-extender/1.2.0</bundle>
+    <bundle>mvn:org.ops4j.pax.swissbox/pax-swissbox-lifecycle/1.2.0</bundle>
+    <bundle>mvn:org.ops4j.base/ops4j-base-lang/1.2.1</bundle>
+    
+  </feature>
+
+  <feature name="liftweb" version="${liftweb.version}">
+    <feature>scala-osgi</feature>
+    <feature>lift-dependencies</feature>
+    <bundle>mvn:net.liftweb/lift-actor/${liftweb.version}</bundle>
+    <bundle>mvn:net.liftweb/lift-common/${liftweb.version}</bundle>
+    <bundle>mvn:net.liftweb/lift-json/${liftweb.version}</bundle>
+    <bundle>mvn:net.liftweb/lift-osgi/${liftweb.version}</bundle>
+    <bundle>mvn:net.liftweb/lift-util/${liftweb.version}</bundle>
+    <bundle>mvn:net.liftweb/lift-webkit/${liftweb.version}</bundle>
+    
+  </feature>
+
+  <feature name="akka" verson="1.0-SNAPSHOT">
+    <bundle>mvn:bodl-wrap/jsr166x/1.0-SNAPSHOT</bundle>
+    <bundle>mvn:bodl-wrap/jgroups/2.9.0.GA-001-SNAPSHOT</bundle>
+    <bundle>mvn:org.jboss.netty/netty/3.2.0.CR1</bundle>
+    <bundle>mvn:org.objenesis/objenesis/1.2</bundle>
+    <bundle>mvn:bodl-wrap-databinder/net.databinder.dispatch-json_2.8.0.RC3/0.7.4-001-SNAPSHOT</bundle>
+    <bundle>mvn:sjson.json/sjson/0.6-SNAPSHOT</bundle>
+    <bundle>mvn:bodl-wrap/sbinary_2.8.0.RC3/0.3.1-SNAPSHOT</bundle>
+    <bundle>mvn:bodl-wrap-multiverse/org.multiverse.core/0.5.2-001-SNAPSHOT</bundle>
+    <bundle>mvn:bodl-wrap-akka/se.scalablesolutions.akka.core_2.8.0.RC3/0.9-SNAPSHOT</bundle>
+  </feature>
+
+  <feature name="twitter-java" version="1.0-SNAPSHOT">
+    <bundle>mvn:bodl-wrap/org.twitter4j.core/2.1.2-001-SNAPSHOT</bundle>
+    <!-- optional -->
+    <bundle>mvn:org.apache.httpcomponents/httpcore-osgi/4.0.1</bundle>
+    <bundle>mvn:org.apache.httpcomponents/httpclient-osgi/4.0.1</bundle>
+    <bundle>mvn:bodl-wrap/org.twitter4j.httpclient-support/2.1.2-001-SNAPSHOT</bundle>
+  </feature>
+
+  <feature name="twitter-scala" version="1.0-SNAPSHOT">
+    <bundle>mvn:joda-time/joda-time/1.6</bundle>
+    <bundle>mvn:commons-codec/commons-codec/1.4</bundle>
+    <bundle>mvn:org.talkingpuffin/twitter-api/0.79b-devel</bundle>
+  </feature>
+
+
+</features>

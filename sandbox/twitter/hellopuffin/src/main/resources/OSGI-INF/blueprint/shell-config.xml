@@ -1,0 +1,12 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+
+  <command-bundle xmlns="http://felix.apache.org/karaf/xmlns/shell/v1.0.0">
+    <command name="puffin/update">
+      <action class="bodl.sandbox.twitter.hellopuffin.command.StatusUpdate"/>
+    </command>
+    <command name="puffin/details">
+      <action class="bodl.sandbox.twitter.hellopuffin.command.GetStatus"/>
+    </command>
+  </command-bundle>
+
+</blueprint>

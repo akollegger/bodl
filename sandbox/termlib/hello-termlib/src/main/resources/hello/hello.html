@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Hello Termlib</title>
+ 	<script language="JavaScript" type="text/javascript" src="/sandbox/termlib/lib/termlib.js"></script>
+
+<script type="text/javascript">
+<!--
+
+var term;
+
+function termOpen() {
+	if ((!term) || (term.closed)) {
+		term = new Terminal(
+			{
+				x: 220,
+				y: 70,
+				termDiv: 'termDiv',
+				bgColor: '#232e45',
+				greeting: '%+r **** hello termlib.js **** %-r%n%n * any text is simply echoed%n * type "exit" to quit.%n ',
+				handler: termHandler,
+				exitHandler: termExitHandler
+			}
+		);
+		term.open();
+
+		// dimm UI text
+		var mainPane = (document.getElementById)?
+			document.getElementById('mainPane') : document.all.mainPane;
+		if (mainPane) mainPane.className = 'lh15 dimmed';
+	}
+}
+
+function termHandler() {
+	// default handler + exit
+	this.newLine();
+	if (this.lineBuffer.search(/^\s*exit\s*$/i) == 0) {
+		this.close();
+		return;
+	}
+	else if (this.lineBuffer != '') {
+		this.type('You typed: '+this.lineBuffer);
+		this.newLine();
+	}
+	this.prompt();
+}
+
+function termExitHandler() {
+	// reset the UI
+	var mainPane = (document.getElementById)?
+		document.getElementById('mainPane') : document.all.mainPane;
+	if (mainPane) mainPane.className = 'lh15';
+}
+
+//-->
+</script>
+  <link rel="stylesheet" type="text/css" href="term_styles.css" />
+<style type="text/css">
+
+</style>
+</head>
+
+
+<body>
+<h1>Hello Termlib</h1>
+
+<ul>
+  <li>
+    <a href="javascript:termOpen()" onfocus="if(this.blur)this.blur();" onmouseover="window.status='open terminal'; return true" onmouseout="window.status=''; return true" class="termopen">&gt; open terminal &nbsp;</a>
+  </li>
+</ul>
+
+<div id="termDiv" style="position:absolute; visibility: hidden; z-index:1;"></div>
+
+</body>
+</html>

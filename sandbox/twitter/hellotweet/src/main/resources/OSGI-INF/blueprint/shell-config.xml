@@ -1,0 +1,18 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+
+  <command-bundle xmlns="http://felix.apache.org/karaf/xmlns/shell/v1.0.0">
+    <command name="tweet/update">
+      <action class="bodl.sandbox.twitter.hellotweet.command.StatusUpdate"/>
+    </command>
+    <command name="tweet/list">
+      <action class="bodl.sandbox.twitter.hellotweet.command.Timeline"/>
+    </command>
+    <command name="tweet/to">
+      <action class="bodl.sandbox.twitter.hellotweet.command.DirectMessageCommand"/>
+    </command>
+    <command name="tweet/search">
+      <action class="bodl.sandbox.twitter.hellotweet.command.SearchCommand"/>
+    </command>
+  </command-bundle>
+
+</blueprint>

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+DEPLOY_DIR="karaf/apache-felix-karaf-1.6.0/deploy/"
+RSYNC_OPTS="--update --verbose --times"
+
+find . -name "*.jar" | grep -v "karaf" | grep -v "runner" | xargs -J foo rsync $RSYNC_OPTS foo $DEPLOY_DIR
+

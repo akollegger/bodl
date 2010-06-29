@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <parent>
+    <relativePath>../../../poms/wrappers/</relativePath>
+    <groupId>bodl-server.build</groupId>
+    <artifactId>wrapper-bundle-settings</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <properties>
+    <bundle.symbolicName>se.scalablesolutions.akka.core_2.8.0.RC3</bundle.symbolicName>
+    <wrapped.groupId>se.scalablesolutions.akka</wrapped.groupId>
+    <wrapped.artifactId>akka-core_2.8.0.RC3</wrapped.artifactId>
+    <wrapped.version>0.9</wrapped.version>
+  </properties>
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>bodl-wrap-akka</groupId>
+  <artifactId>se.scalablesolutions.akka.core_2.8.0.RC3</artifactId>
+  <version>0.9-SNAPSHOT</version>
+
+  <name>${bundle.symbolicName} ${wrapped.version} [osgi]</name>
+
+  <packaging>bundle</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>${wrapped.groupId}</groupId>
+      <artifactId>${wrapped.artifactId}</artifactId>
+      <version>${wrapped.version}</version>
+      <optional>true</optional>
+    </dependency>
+  </dependencies>
+
+</project>
